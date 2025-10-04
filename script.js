@@ -7,5 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const username = usernameInput.value.input.trim()
   const email = emailInput.value.input.trim()
   const password = userInput.value.input.trim()
+
+  let isValid = true
+  const messages = []
+
+  if (username > 3 ) {
+    isValid = false
+    messages.push("Username is valid");
+  }
+
 });
-    
