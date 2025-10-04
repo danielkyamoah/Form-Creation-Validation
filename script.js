@@ -6,8 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (event) {
     event.preventDefault(); 
 
-    // get what user typed
-    const usernameInput = document.getElementById("username");
+   const usernameInput = document.getElementById("username");
     const username = usernameInput.value.trim();
 
     const emailInput = document.getElementById("email");
