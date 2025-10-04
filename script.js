@@ -40,7 +40,16 @@ document.addEventListener("DOMContentLoaded", function () {
       messages.push("Password looks good!");
     }
 
-    feedbackDiv.textContent = messages.join(" | ");
+    feedbackDiv.style.display = "block";
+
+    if (isValid) {
+      feedbackDiv.textContent = "Registration successful!";
+      feedbackDiv.style.color = "#28a745";
+    } else {
+      feedbackDiv.innerHTML = messages.join("<br>");
+      feedbackDiv.style.color = "#dc3545";
+  }
+
   });
-  
+
 });
