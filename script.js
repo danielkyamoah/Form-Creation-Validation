@@ -1,19 +1,46 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("registration-form");
-    
-    const feedbackDiv = document.getElementById("form-feedback");
-  // All your JavaScript logic goes here
-    // retrieving user input
-  const username = usernameInput.value.input.trim()
-  const email = emailInput.value.input.trim()
-  const password = userInput.value.input.trim()
+  const form = document.getElementById("registration-form");
+  const feedbackDiv = document.getElementById("form-feedback");
 
-  let isValid = true
-  const messages = []
+  
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); 
 
-  if (username > 3 ) {
-    isValid = false
-    messages.push("Username is valid");
-  }
+    // get what user typed
+    const usernameInput = document.getElementById("username");
+    const username = usernameInput.value.trim();
 
+    const emailInput = document.getElementById("email");
+    const email = emailInput.value.trim();
+
+    const passwordInput = document.getElementById("password");
+    const password = passwordInput.value.trim();
+
+    let isValid = true;
+    const messages = [];
+
+    if (username.length < 3) {
+      isValid = false;
+      messages.push("Username must be at least 3 characters long");
+    } else {
+      messages.push("Username looks good!");
+    }
+
+    if (!email.includes("@")) {
+      isValid = false;
+      messages.push("Email must be valid");
+    } else {
+      messages.push("Email looks good!");
+    }
+
+    if (password.length < 6) {
+      isValid = false;
+      messages.push("Password must be at least 6 characters long");
+    } else {
+      messages.push("Password looks good!");
+    }
+
+    feedbackDiv.textContent = messages.join(" | ");
+  });
+  
 });
